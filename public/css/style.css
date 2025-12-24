@@ -177,3 +177,67 @@ body {
   cursor: pointer;
 }
 
+/* Parallax sections */
+.parallax {
+  height: 85vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.parallax::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+}
+
+.parallax-text {
+  position: relative;
+  text-align: center;
+  color: white;
+  max-width: 600px;
+  padding: 0 20px;
+}
+
+.parallax-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.parallax-text p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* Gallery grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 80px 5%;
+}
+
+.gallery-grid img {
+  width: 100%;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.02);
+}
+
+/* Mobile fix */
+@media (max-width: 768px) {
+  .parallax {
+    background-attachment: scroll;
+    height: 65vh;
+  }
+}
+
