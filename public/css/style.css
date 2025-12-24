@@ -1,1 +1,147 @@
+:root {
+  --ivory: #f7f3ef;
+  --taupe: #8a7f76;
+  --sage: #9aa79b;
+  --blush: #e6cfc2;
+  --gold: #b89b6d;
+  --text-dark: #2b2b2b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Georgia", serif;
+  background: var(--ivory);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* Layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+/* Header */
+.site-header {
+  border-bottom: 1px solid #e6e0db;
+  background: var(--ivory);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+}
+
+.logo img {
+  height: 36px;
+}
+
+.main-nav a {
+  margin-left: 2rem;
+  text-decoration: none;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+}
+
+.main-nav .cta {
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  background: var(--taupe);
+  color: white;
+}
+
+/* Hero */
+.hero {
+  padding: 6rem 2rem 5rem;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.6rem;
+  max-width: 800px;
+  margin: 0 auto 1rem;
+}
+
+.hero p {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  color: #555;
+}
+
+.hero-actions a {
+  margin: 0 0.5rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.btn.primary {
+  background: var(--gold);
+  color: white;
+}
+
+.btn.secondary {
+  border: 1px solid var(--taupe);
+  color: var(--taupe);
+}
+
+/* Portfolio preview */
+.portfolio-preview h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 1.8rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: white;
+  padding: 4rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text-dark);
+  border-radius: 6px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+/* CTA block */
+.cta-block {
+  background: #efe9e3;
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+.cta-block h2 {
+  margin-bottom: 1.5rem;
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.85rem;
+  color: #666;
+}
 
