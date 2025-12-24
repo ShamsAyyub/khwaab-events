@@ -1,1 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Khwaab Events</title>
+
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <img src="/images/logo-dark.svg" alt="Khwaab Events">
+      </div>
+
+      <nav class="main-nav">
+        <a href="/gallery.html">Gallery</a>
+        <a href="/event-types.html">Event Types</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html" class="cta">Book a Call</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="container" style="max-width:900px;">
+    <h1 style="margin-bottom:2rem;">Get in Touch</h1>
+
+    <!-- Booking -->
+    <h2 style="margin-bottom:1rem;">Book a Call</h2>
+    <p style="margin-bottom:2rem;">
+      Schedule a quick call to discuss your event and see how we can help.
+    </p>
+
+    <iframe
+      src="PASTE_GOOGLE_CALENDAR_BOOKING_LINK_HERE"
+      style="width:100%; height:600px; border:0; margin-bottom:4rem;"
+      loading="lazy">
+    </iframe>
+
+    <!-- Contact Form -->
+    <h2 id="form" style="margin-bottom:1rem;">Send a Message</h2>
+    <p style="margin-bottom:2rem;">
+      Prefer email? Share a few details and we’ll get back to you shortly.
+    </p>
+
+    <form
+      action="mailto:eventsbykhwaab@gmail.com"
+      method="POST"
+      enctype="text/plain"
+      style="max-width:600px;"
+    >
+      <input type="text" name="name" placeholder="Your Name" required style="width:100%; padding:0.8rem; margin-bottom:1rem;">
+      <input type="email" name="email" placeholder="Your Email" required style="width:100%; padding:0.8rem; margin-bottom:1rem;">
+      <textarea name="message" placeholder="Tell us about your event" rows="5" style="width:100%; padding:0.8rem; margin-bottom:1.5rem;"></textarea>
+      <button type="submit" class="btn primary">Send Message</button>
+    </form>
+  </section>
+
+  <footer class="site-footer">
+    <p>© Khwaab Events</p>
+  </footer>
+
+</body>
+</html>
 
