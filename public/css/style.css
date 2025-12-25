@@ -241,39 +241,39 @@ body {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  padding: 80px 5%;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+  padding: 64px 5%;
 }
 
 .gallery-grid img {
   width: 100%;
   border-radius: 6px;
   cursor: pointer;
-  transition: transform 0.4s ease;
+  transition: transform 0.35s ease;
 }
 
 .gallery-grid img:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
 /* =========================
-   LIGHTBOX
+   LIGHTBOX (scrollable gallery)
 ========================= */
 
 #lightbox {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.85);
+  background: rgba(0,0,0,0.9);
   justify-content: center;
   align-items: center;
   z-index: 999;
 }
 
 #lightbox img {
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 85%;
+  max-height: 85%;
 }
 
 #close {
@@ -285,57 +285,30 @@ body {
   cursor: pointer;
 }
 
-/* =========================
-   PARALLAX
-========================= */
-
-.parallax {
-  height: 85vh;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.parallax::before {
-  content: "";
+/* arrows */
+#lightbox .nav {
   position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.35);
-}
-
-.parallax-text {
-  position: relative;
-  text-align: center;
+  top: 50%;
+  font-size: 3rem;
   color: white;
-  max-width: 600px;
-  padding: 0 20px;
+  cursor: pointer;
+  padding: 1rem;
+  user-select: none;
 }
 
-.parallax-text h2 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+#lightbox .prev {
+  left: 2rem;
 }
 
-.parallax-text p {
-  font-size: 1rem;
-  opacity: 0.9;
+#lightbox .next {
+  right: 2rem;
 }
 
 /* =========================
-   MOBILE
+   PARALLAX (DISABLED)
 ========================= */
 
-@media (max-width: 768px) {
-  .parallax {
-    background-attachment: scroll;
-    height: 65vh;
-  }
-
-  .main-nav a {
-    margin-left: 1.2rem;
-  }
+/* keeping empty so nothing breaks */
+.parallax {
+  display: none;
 }
