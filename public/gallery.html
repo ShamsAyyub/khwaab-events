@@ -12,90 +12,132 @@
 
   <!-- Header -->
   <header class="site-header">
-  <div class="header-inner">
-    
-    <div class="logo">
-      <a href="/index.html">
-        <img 
-          src="/images/logo/khwaab-logo-dark.png"
-          alt="Khwaab Events logo"
-          class="site-logo"
-        />
-      </a>
+    <div class="header-inner">
+      <div class="logo">
+        <a href="/index.html">
+          <img 
+            src="/images/logo/khwaab-logo-dark.png"
+            alt="Khwaab Events logo"
+            class="site-logo"
+          />
+        </a>
+      </div>
+
+      <nav class="main-nav">
+        <a href="/index.html">Home</a>
+        <a href="/gallery.html">Gallery</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html" class="cta">Book a Call</a>
+      </nav>
     </div>
+  </header>
 
-    <nav class="main-nav">
-      <a href="/index.html">Home</a>
-      <a href="/gallery.html">Gallery</a>
-      <a href="/about.html">About</a>
-      <a href="/contact.html" class="cta">Book a Call</a>
-    </nav>
+  <!-- PAGE INTRO -->
+  <section class="gallery-hero">
+    <h1>Gallery</h1>
+    <p>A collection of moments, styled with care.</p>
+  </section>
 
-  </div>
-</header>
-
-  <!-- Gallery -->
   <!-- NIKKAH -->
-<section class="parallax" style="background-image:url('/images/nikkah/nikkah1.jpg')">
-  <div class="parallax-text">
+  <section class="gallery-section">
     <h2>Nikkah</h2>
-    <p>Sacred moments, honoured with grace.</p>
-  </div>
-</section>
+    <p class="section-sub">Sacred moments, honoured with grace.</p>
 
-<section class="gallery-grid">
-  <img src="/images/nikkah/nikkah2.jpg">
-  <img src="/images/nikkah/nikkah3.jpg">
-  <img src="/images/nikkah/nikkah4.jpg">
-</section>
+    <div class="gallery-grid">
+      <img src="/images/nikkah/nikkah1.jpg">
+      <img src="/images/nikkah/nikkah2.jpg">
+      <img src="/images/nikkah/nikkah3.jpg">
+      <img src="/images/nikkah/nikkah4.jpg">
+    </div>
+  </section>
 
-<!-- MEHNDI -->
-<section class="parallax" style="background-image:url('/images/mehndi/mehndi1.jpg')">
-  <div class="parallax-text">
+  <!-- MEHNDI -->
+  <section class="gallery-section">
     <h2>Mehndi</h2>
-    <p>Colour, joy, and celebration.</p>
-  </div>
-</section>
+    <p class="section-sub">Colour, joy, and celebration.</p>
 
-<section class="gallery-grid">
-  <img src="/images/mehndi/mehndi2.jpg">
-  <img src="/images/mehndi/mehndi3.jpg">
-</section>
+    <div class="gallery-grid">
+      <img src="/images/mehndi/mehndi1.jpg">
+      <img src="/images/mehndi/mehndi2.jpg">
+      <img src="/images/mehndi/mehndi3.jpg">
+    </div>
+  </section>
 
-<!-- PARTY -->
-<section class="parallax" style="background-image:url('/images/party/party1.jpg')">
-  <div class="parallax-text">
+  <!-- PARTY -->
+  <section class="gallery-section">
     <h2>Party</h2>
-    <p>Intimate gatherings, beautifully styled.</p>
-  </div>
-</section>
+    <p class="section-sub">Intimate gatherings, beautifully styled.</p>
 
-<section class="gallery-grid">
-  <img src="/images/party/party2.jpg">
-  <img src="/images/party/party3.jpg">
-</section>
+    <div class="gallery-grid">
+      <img src="/images/party/party1.jpg">
+      <img src="/images/party/party2.jpg">
+      <img src="/images/party/party3.jpg">
+    </div>
+  </section>
 
-<!-- CULTURAL -->
-<section class="parallax" style="background-image:url('/images/cultural/cultural1.jpg')">
-  <div class="parallax-text">
+  <!-- CULTURAL -->
+  <section class="gallery-section">
     <h2>Cultural</h2>
-    <p>Rooted in tradition. Designed with care.</p>
-  </div>
-</section>
+    <p class="section-sub">Rooted in tradition. Designed with care.</p>
 
-<section class="gallery-grid">
-  <img src="/images/cultural/cultural2.jpg">
-  <img src="/images/cultural/cultural3.jpg">
-</section>
+    <div class="gallery-grid">
+      <img src="/images/cultural/cultural1.jpg">
+      <img src="/images/cultural/cultural2.jpg">
+      <img src="/images/cultural/cultural3.jpg">
+    </div>
+  </section>
 
-
-  <!-- Lightbox -->
+  <!-- LIGHTBOX -->
   <div id="lightbox">
     <span id="close">×</span>
-    <img id="lightbox-img" />
+    <span class="nav prev">‹</span>
+    <img id="lightbox-img">
+    <span class="nav next">›</span>
   </div>
 
-  <script src="/js/gallery.js"></script>
+  <!-- LIGHTBOX SCRIPT -->
+  <script>
+    const images = document.querySelectorAll('.gallery-grid img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.getElementById('close');
+    const nextBtn = document.querySelector('.next');
+    const prevBtn = document.querySelector('.prev');
+
+    let currentIndex = 0;
+    const imageArray = Array.from(images);
+
+    function openLightbox(index) {
+      currentIndex = index;
+      lightboxImg.src = imageArray[currentIndex].src;
+      lightbox.style.display = 'flex';
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % imageArray.length;
+      lightboxImg.src = imageArray[currentIndex].src;
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + imageArray.length) % imageArray.length;
+      lightboxImg.src = imageArray[currentIndex].src;
+    }
+
+    imageArray.forEach((img, index) => {
+      img.addEventListener('click', () => openLightbox(index));
+    });
+
+    closeBtn.addEventListener('click', () => lightbox.style.display = 'none');
+    nextBtn.addEventListener('click', showNext);
+    prevBtn.addEventListener('click', showPrev);
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.style.display.includes('flex')) return;
+      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'ArrowLeft') showPrev();
+      if (e.key === 'Escape') lightbox.style.display = 'none';
+    });
+  </script>
 
 </body>
 </html>
