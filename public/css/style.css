@@ -38,10 +38,8 @@ body {
 }
 
 .header-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem 2rem;
-
+  width: 100%;
+  padding: 1.2rem 3rem;   /* more breathing room */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -55,7 +53,7 @@ body {
 }
 
 .site-logo {
-  height: 42px;
+  height: 60px;
   width: auto;
   display: block;
 }
