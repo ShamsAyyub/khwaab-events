@@ -27,29 +27,44 @@ body {
   padding: 4rem 2rem;
 }
 
-/* Header */
+/* =========================
+   HEADER
+========================= */
+
 .site-header {
   border-bottom: 1px solid #e6e0db;
   background: var(--ivory);
 }
 
 .header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 2rem;
+  justify-content: space-between;
 }
 
+/* Logo */
 .logo {
   display: flex;
   align-items: center;
-  
+  flex-shrink: 0;
 }
-.site-logo {
-  height: 36px;   /* adjust if needed */
+
+.logo img {
+  height: 42px;
   width: auto;
   display: block;
 }
+
+/* Navigation */
+.main-nav {
+  display: flex;
+  align-items: center;
+}
+
 .main-nav a {
   margin-left: 2rem;
   text-decoration: none;
@@ -64,7 +79,10 @@ body {
   color: white;
 }
 
-/* Hero */
+/* =========================
+   HERO
+========================= */
+
 .hero {
   position: relative;
   min-height: 90vh;
@@ -76,18 +94,20 @@ body {
   justify-content: center;
   text-align: center;
 }
+
 .hero-overlay {
   position: absolute;
   inset: 0;
   background: rgba(245, 240, 235, 0.65);
-  /* warm ivory wash */
 }
+
 .hero-content {
   position: relative;
   max-width: 900px;
   padding: 2rem;
   z-index: 2;
 }
+
 .hero h1 {
   font-size: clamp(2.4rem, 4vw, 3.2rem);
   margin-bottom: 1rem;
@@ -98,14 +118,12 @@ body {
   margin-bottom: 2rem;
   color: #555;
 }
+
 .hero-buttons {
   display: flex;
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
-}
-.hero-actions a {
-  margin: 0 0.5rem;
 }
 
 /* Buttons */
@@ -127,7 +145,10 @@ body {
   color: var(--taupe);
 }
 
-/* Portfolio preview */
+/* =========================
+   PORTFOLIO PREVIEW
+========================= */
+
 .portfolio-preview h2 {
   text-align: center;
   margin-bottom: 3rem;
@@ -154,7 +175,10 @@ body {
   transform: translateY(-4px);
 }
 
-/* CTA block */
+/* =========================
+   CTA BLOCK
+========================= */
+
 .cta-block {
   background: #efe9e3;
   text-align: center;
@@ -165,7 +189,10 @@ body {
   margin-bottom: 1.5rem;
 }
 
-/* Footer */
+/* =========================
+   FOOTER
+========================= */
+
 .site-footer {
   text-align: center;
   padding: 2rem;
@@ -173,14 +200,32 @@ body {
   color: #666;
 }
 
-/* Gallery */
-.gallery-grid img {
-  width: 100%;
-  cursor: pointer;
-  border-radius: 4px;
+/* =========================
+   GALLERY
+========================= */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 80px 5%;
 }
 
-/* Lightbox */
+.gallery-grid img {
+  width: 100%;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.02);
+}
+
+/* =========================
+   LIGHTBOX
+========================= */
+
 #lightbox {
   display: none;
   position: fixed;
@@ -205,7 +250,10 @@ body {
   cursor: pointer;
 }
 
-/* Parallax sections */
+/* =========================
+   PARALLAX
+========================= */
+
 .parallax {
   height: 85vh;
   background-size: cover;
@@ -242,30 +290,17 @@ body {
   opacity: 0.9;
 }
 
-/* Gallery grid */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  padding: 80px 5%;
-}
+/* =========================
+   MOBILE
+========================= */
 
-.gallery-grid img {
-  width: 100%;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: transform 0.4s ease;
-}
-
-.gallery-grid img:hover {
-  transform: scale(1.02);
-}
-
-/* Mobile fix */
 @media (max-width: 768px) {
   .parallax {
     background-attachment: scroll;
     height: 65vh;
   }
-}
 
+  .main-nav a {
+    margin-left: 1.2rem;
+  }
+}
