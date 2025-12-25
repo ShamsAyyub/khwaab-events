@@ -239,11 +239,49 @@ body {
    GALLERY
 ========================= */
 
+.gallery-hero {
+  text-align: center;
+  padding: 5rem 2rem 3rem;
+}
+
+.gallery-hero h1 {
+  font-size: 2.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.gallery-hero p {
+  color: #666;
+}
+
+/* sections */
+
+.gallery-section {
+  padding: 4.5rem 5% 5.5rem;
+}
+
+.gallery-intro {
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.gallery-intro h2 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.gallery-intro .section-sub {
+  font-size: 1rem;
+  color: #6f6f6f;
+}
+
+/* grid */
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 22px;
-  padding: 64px 5%;
 }
 
 .gallery-grid img {
@@ -257,29 +295,22 @@ body {
   transform: scale(1.03);
 }
 
-.gallery-section {
-  padding: 5rem 5% 6rem;
-}
+/* =========================
+   SECTION DIVIDER (OPTION 3)
+========================= */
 
-.gallery-intro {
-  max-width: 720px;
-  margin-bottom: 3rem;
-}
-
-.gallery-intro h2 {
-  font-size: 2.3rem;
-  margin-bottom: 0.6rem;
-  letter-spacing: 0.01em;
-}
-
-.gallery-intro .section-sub {
-  font-size: 1rem;
-  color: #666;
-  max-width: 520px;
+.section-divider {
+  height: 120px;
+  background: linear-gradient(
+    to bottom,
+    rgba(247,243,239,0) 0%,
+    rgba(247,243,239,0.6) 40%,
+    rgba(247,243,239,1) 100%
+  );
 }
 
 /* =========================
-   LIGHTBOX (scrollable gallery)
+   LIGHTBOX
 ========================= */
 
 #lightbox {
@@ -306,7 +337,6 @@ body {
   cursor: pointer;
 }
 
-/* arrows */
 #lightbox .nav {
   position: absolute;
   top: 50%;
@@ -314,22 +344,7 @@ body {
   color: white;
   cursor: pointer;
   padding: 1rem;
-  user-select: none;
 }
 
-#lightbox .prev {
-  left: 2rem;
-}
-
-#lightbox .next {
-  right: 2rem;
-}
-
-/* =========================
-   PARALLAX (DISABLED)
-========================= */
-
-/* keeping empty so nothing breaks */
-.parallax {
-  display: none;
-}
+#lightbox .prev { left: 2rem; }
+#lightbox .next { right: 2rem; }
