@@ -51,6 +51,7 @@ body {
   align-items: center;
   margin: 0;
   padding: 0;
+  transform: translateY(-2px);
 }
 .logo img {
   display: block;
