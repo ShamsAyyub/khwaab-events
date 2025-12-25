@@ -40,12 +40,16 @@ body {
   padding: 1.5rem 2rem;
 }
 
-.logo img {
-  height: 42px;
+.logo {
+  display: flex;
+  align-items: center;
+  
+}
+.site-logo {
+  height: 36px;   /* adjust if needed */
   width: auto;
   display: block;
 }
-
 .main-nav a {
   margin-left: 2rem;
   text-decoration: none;
