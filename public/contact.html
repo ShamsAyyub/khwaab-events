@@ -55,40 +55,44 @@
 </div>
 
     <!-- Contact Form -->
-    <h2 id="form" style="margin-bottom:1rem;">Send a Message</h2>
-    <p style="margin-bottom:2rem;">
-      Prefer email? Share a few details and we’ll get back to you shortly.
-    </p>
+    <section class="contact-section">
+  <h2>Send a Message</h2>
+  <p class="contact-sub">
+    Prefer email? Share a few details and we’ll get back to you shortly.
+  </p>
 
-    <form
-  action="https://docs.google.com/forms/d/e/1FAIpQLSc2igSp52btuKFAEbTqPBoGVGOXF_IxI4OQTp1B6eCRn4ny3A/formResponse"
-  method="POST"
-  target="hidden_iframe"
-  onsubmit="submitted=true;"
->
+  <form
+    class="contact-form"
+    action="https://docs.google.com/forms/d/e/1FAIpQLSc2igSp52btuKFAEbTqPBoGVGOXF_IxI4OQTp1B6eCRn4ny3A/formResponse"
+    method="POST"
+    target="hidden_iframe"
+    onsubmit="submitted=true;"
+  >
 
-  <input
-    type="email"
-    name="entry.1022446003"
-    placeholder="Your Email"
-    required
-  />
+    <div class="form-row">
+      <input
+        type="email"
+        name="entry.1022446003"
+        placeholder="Your Email"
+        required
+      />
 
-  <input
-    type="text"
-    name="entry.170441386"
-    placeholder="Your Name"
-    required
-  />
+      <input
+        type="text"
+        name="entry.170441386"
+        placeholder="Your Name"
+        required
+      />
+    </div>
 
-  <textarea
-    name="entry.268942957"
-    placeholder="Tell us about your event"
-    required
-  ></textarea>
+    <textarea
+      name="entry.268942957"
+      placeholder="Tell us about your event"
+      required
+    ></textarea>
 
-  <button type="submit">Send Message</button>
-</form>
+    <button type="submit">Send Message</button>
+  </form>
 
 <iframe name="hidden_iframe" style="display:none;"></iframe>
     <script>
