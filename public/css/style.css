@@ -163,11 +163,11 @@ body {
 }
 
 /* =========================
-   PORTFOLIO PREVIEW
+   PAGE HERO - FAQ
 ========================= */
 .page-hero {
   text-align: center;
-  padding: 4rem 5% 3rem;
+  padding: 3.5rem 5% 1.5rem; /* reduced bottom padding */
   max-width: 900px;
   margin: 0 auto;
 }
@@ -178,6 +178,15 @@ body {
 
 .page-hero p {
   max-width: 520px;
+  margin: 0 auto 1.25rem;
+  color: #666;
+}
+
+/* subtle divider */
+.faq-divider {
+  width: 60px;
+  height: 1px;
+  background: rgba(0,0,0,0.15);
   margin: 0 auto;
 }
 /* =========================
