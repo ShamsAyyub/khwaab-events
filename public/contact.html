@@ -61,11 +61,7 @@
   Prefer email? Share a few details and we’ll get back to you shortly.
 </p>
 
- <form
-  class="contact-form"
-  action="https://hook.us2.make.com/t334ag53qc7lev3es1u9dyjuqqf4tq7z"
-  method="POST"
->
+ <form class="contact-form" id="contactForm">
 
   <div class="form-row">
     <input
@@ -92,21 +88,30 @@
   <button type="submit">Send Message</button>
 </form>
 <iframe name="hidden_iframe" style="display:none;"></iframe>
-   <script>
-  var submitted = false;
-</script>
+ <script>
+  const form = document.querySelector('.contact-form');
 
-<script>
-  document.querySelector('iframe[name="hidden_iframe"]').addEventListener('load', function () {
-    if (submitted) {
-      const form = document.querySelector('.contact-form');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault(); // stop page redirect
+
+    const formData = new FormData(form);
+
+    fetch('https://hook.us2.make.com/t334ag53qc7lev3es1u9dyjuqqf4tq7z', {
+      method: 'POST',
+      body: formData
+    })
+    .then(() => {
+      // remove helper text if it exists
       const helper = document.getElementById('contact-helper');
-
       if (helper) helper.remove();
 
+      // replace form with thank-you message
       form.innerHTML =
         '<p class="thank-you-message"><strong>Thank you for reaching out.</strong><br>We’ll be in touch shortly.</p>';
-    }
+    })
+    .catch(() => {
+      alert('Something went wrong. Please try again.');
+    });
   });
 </script>
   </section>
