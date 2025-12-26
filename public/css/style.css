@@ -56,11 +56,24 @@ body {
 .logo img {
   display: block;
 }
+.logo-lockup {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+}
+
+.logo-text {
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  color: var(--text-dark);
+}
 .site-logo {
   height: 60px;
   width: auto;
   display: block;
 }
+
 
 /* Navigation */
 .main-nav {
