@@ -100,22 +100,17 @@
 </script>
 
 <script>
-  document
-    .querySelector('iframe[name="hidden_iframe"]')
-    .addEventListener('load', function () {
-      if (submitted) {
-        // remove helper text
-        const helper = document.getElementById('contact-helper');
-        if (helper) helper.remove();
+  document.querySelector('iframe[name="hidden_iframe"]').addEventListener('load', function () {
+    if (submitted) {
+      const form = document.querySelector('.contact-form');
+      const helper = document.getElementById('contact-helper');
 
-        // replace form with success message
-        document.querySelector('.contact-form').innerHTML = `
-          <p class="contact-success">
-            Thank you for reaching out. We’ll be in touch shortly.
-          </p>
-        `;
-      }
-    });
+      if (helper) helper.remove();
+
+      form.innerHTML =
+        '<p class="thank-you-message"><strong>Thank you for reaching out.</strong><br>We’ll be in touch shortly.</p>';
+    }
+  });
 </script>
   </section>
 
