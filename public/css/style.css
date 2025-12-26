@@ -367,3 +367,83 @@ body {
 
 #lightbox .prev { left: 2rem; }
 #lightbox .next { right: 2rem; }
+
+/* =========================
+   CONTACT FORM
+========================= */
+
+.contact-section {
+  padding: 6rem 5%;
+  max-width: 900px;
+}
+
+.contact-section h2 {
+  font-size: 2.4rem;
+  margin-bottom: 0.6rem;
+}
+
+.contact-sub {
+  color: #666;
+  margin-bottom: 2.5rem;
+  max-width: 520px;
+}
+
+.contact-form {
+  max-width: 720px;
+}
+
+/* two-column row */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+/* inputs + textarea */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  font-size: 0.95rem;
+  border: 1px solid rgba(0,0,0,0.25);
+  border-radius: 6px;
+  background: #fff;
+  font-family: inherit;
+}
+
+.contact-form textarea {
+  min-height: 140px;
+  resize: vertical;
+  margin-bottom: 1.6rem;
+}
+
+/* focus state */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: rgba(0,0,0,0.6);
+}
+
+/* button */
+.contact-form button {
+  background: #b9a06b; /* your gold tone */
+  color: #fff;
+  border: none;
+  padding: 0.85rem 2.2rem;
+  font-size: 0.95rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.contact-form button:hover {
+  background: #a38b5b;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
