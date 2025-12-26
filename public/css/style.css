@@ -369,24 +369,46 @@ body {
 #lightbox .next { right: 2rem; }
 
 /* =========================
-   CONTACT FORM
+   CONTACT PAGE
 ========================= */
 
-.contact-section {
-  padding: 6rem 5%;
+.contact-page {
+  padding: 6rem 5% 4rem;
+}
+
+.contact-container {
   max-width: 900px;
+  margin: 0 auto;
 }
 
-.contact-section h2 {
-  font-size: 2.4rem;
-  margin-bottom: 0.6rem;
+/* page title */
+.contact-header {
+  margin-bottom: 4rem;
 }
 
-.contact-sub {
+.contact-header h1 {
+  font-size: 2.8rem;
+}
+
+/* sections */
+.contact-block {
+  margin-bottom: 5rem;
+}
+
+.contact-block h2 {
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+.contact-block p {
   color: #666;
-  margin-bottom: 2.5rem;
   max-width: 520px;
+  margin-bottom: 2rem;
 }
+
+/* =========================
+   CONTACT FORM
+========================= */
 
 .contact-form {
   max-width: 720px;
@@ -418,7 +440,7 @@ body {
   margin-bottom: 1.6rem;
 }
 
-/* focus state */
+/* focus */
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
@@ -427,7 +449,7 @@ body {
 
 /* button */
 .contact-form button {
-  background: #b9a06b; /* your gold tone */
+  background: #b9a06b;
   color: #fff;
   border: none;
   padding: 0.85rem 2.2rem;
@@ -439,6 +461,12 @@ body {
 
 .contact-form button:hover {
   background: #a38b5b;
+}
+
+/* success message */
+.contact-form p {
+  font-size: 1rem;
+  color: #555;
 }
 
 /* mobile */
