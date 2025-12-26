@@ -95,17 +95,27 @@
   </form>
 
 <iframe name="hidden_iframe" style="display:none;"></iframe>
-    <script>
+   <script>
   var submitted = false;
 </script>
 
 <script>
-  document.querySelector('iframe[name="hidden_iframe"]').addEventListener('load', function () {
-    if (submitted) {
-      document.querySelector('form').innerHTML =
-        "<p>Thank you for reaching out. We’ll be in touch shortly.</p>";
-    }
-  });
+  document
+    .querySelector('iframe[name="hidden_iframe"]')
+    .addEventListener('load', function () {
+      if (submitted) {
+        // remove helper text
+        const helper = document.getElementById('contact-helper');
+        if (helper) helper.remove();
+
+        // replace form with success message
+        document.querySelector('.contact-form').innerHTML = `
+          <p class="contact-success">
+            Thank you for reaching out. We’ll be in touch shortly.
+          </p>
+        `;
+      }
+    });
 </script>
   </section>
 
