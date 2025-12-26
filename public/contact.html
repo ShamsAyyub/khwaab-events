@@ -61,39 +61,36 @@
   Prefer email? Share a few details and we’ll get back to you shortly.
 </p>
 
-  <form
-    class="contact-form"
-    action="https://docs.google.com/forms/d/e/1FAIpQLSc2igSp52btuKFAEbTqPBoGVGOXF_IxI4OQTp1B6eCRn4ny3A/formResponse"
-    method="POST"
-    target="hidden_iframe"
-    onsubmit="submitted=true;"
-  >
+ <form
+  class="contact-form"
+  action="https://hook.us2.make.com/t334ag53qc7lev3es1u9dyjuqqf4tq7z"
+  method="POST"
+>
 
-    <div class="form-row">
-      <input
-        type="email"
-        name="entry.1022446003"
-        placeholder="Your Email"
-        required
-      />
-
-      <input
-        type="text"
-        name="entry.170441386"
-        placeholder="Your Name"
-        required
-      />
-    </div>
-
-    <textarea
-      name="entry.268942957"
-      placeholder="Tell us about your event"
+  <div class="form-row">
+    <input
+      type="email"
+      name="email"
+      placeholder="Your Email"
       required
-    ></textarea>
+    />
 
-    <button type="submit">Send Message</button>
-  </form>
+    <input
+      type="text"
+      name="name"
+      placeholder="Your Name"
+      required
+    />
+  </div>
 
+  <textarea
+    name="message"
+    placeholder="Tell us about your event"
+    required
+  ></textarea>
+
+  <button type="submit">Send Message</button>
+</form>
 <iframe name="hidden_iframe" style="display:none;"></iframe>
    <script>
   var submitted = false;
