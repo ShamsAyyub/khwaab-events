@@ -165,6 +165,24 @@ body {
 /* =========================
    PORTFOLIO PREVIEW
 ========================= */
+.page-hero {
+  text-align: center;
+  padding: 4rem 5% 3rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.page-hero h1 {
+  margin-bottom: 0.75rem;
+}
+
+.page-hero p {
+  max-width: 520px;
+  margin: 0 auto;
+}
+/* =========================
+   PORTFOLIO PREVIEW
+========================= */
 
 .portfolio-preview h2 {
   text-align: center;
