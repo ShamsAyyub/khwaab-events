@@ -1,108 +1,30 @@
 /* Shared social labels for the announcement bar */
-.announcement-social{
-  display:flex;
-  align-items:center;
-  gap:0;
-}
-.announcement-social a{
-  display:inline-flex;
-  width:auto;
-  height:auto;
-  align-items:center;
-  color:#40201d;
-  text-decoration:none;
-  font-size:.62rem;
-  font-weight:700;
-  letter-spacing:.08em;
-  line-height:1;
-  text-transform:uppercase;
-  transition:opacity .2s ease;
-}
-.announcement-social a:hover{opacity:.65;transform:none}
-.announcement-social svg{display:none!important}
-.announcement-social a:nth-of-type(1){order:1}
-.announcement-social a:nth-of-type(3){order:2}
-.announcement-social a:nth-of-type(2){order:3}
-.announcement-social a:nth-of-type(1)::after{content:"INSTAGRAM"}
-.announcement-social a:nth-of-type(3)::before,.announcement-social a:nth-of-type(2)::before{content:"·";margin:0 .55rem;color:#8f7168}
-.announcement-social a:nth-of-type(3)::after{content:"PINTEREST"}
-.announcement-social a:nth-of-type(2)::after{content:"TIKTOK"}
+.announcement-social{display:flex;align-items:center;gap:0}
+.announcement-social a{display:inline-flex;width:auto;height:auto;align-items:center;color:#40201d;text-decoration:none;font-size:.62rem;font-weight:700;letter-spacing:.08em;line-height:1;text-transform:uppercase;transition:opacity .2s ease}
+.announcement-social a:hover{opacity:.65;transform:none}.announcement-social svg{display:none!important}
+.announcement-social a:nth-of-type(1){order:1}.announcement-social a:nth-of-type(3){order:2}.announcement-social a:nth-of-type(2){order:3}
+.announcement-social a:nth-of-type(1)::after{content:"INSTAGRAM"}.announcement-social a:nth-of-type(3)::before,.announcement-social a:nth-of-type(2)::before{content:"·";margin:0 .55rem;color:#8f7168}.announcement-social a:nth-of-type(3)::after{content:"PINTEREST"}.announcement-social a:nth-of-type(2)::after{content:"TIKTOK"}
 
-/* Internal pages use pseudo-elements for the announcement bar. */
-body:has(.main-nav)::after{
-  content:"INSTAGRAM  ·  PINTEREST  ·  TIKTOK" !important;
-  position:absolute;
-  top:0;
-  right:4vw;
-  z-index:20;
-  min-height:34px;
-  display:flex;
-  align-items:center;
-  color:#40201d;
-  font-family:Arial,Helvetica,sans-serif;
-  font-size:.62rem;
-  font-weight:700;
-  letter-spacing:.08em;
-  line-height:1;
-  white-space:nowrap;
-  pointer-events:none;
-}
+/* Internal pages use pseudo-elements for the same announcement bar. */
+body:has(.main-nav)::after{content:"INSTAGRAM  ·  PINTEREST  ·  TIKTOK"!important;position:absolute;top:0;right:4vw;z-index:20;min-height:34px;display:flex;align-items:center;color:#40201d;font-family:Arial,Helvetica,sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.08em;line-height:1;white-space:nowrap;pointer-events:none}
+body:has(.main-nav) .announcement-social::before,body:has(.main-nav) .announcement-social::after{content:none!important}
 
-body:has(.main-nav) .announcement-social::before,
-body:has(.main-nav) .announcement-social::after{
-  content:none!important;
-}
+.desktop-nav a[href="/faq.html"],.mobile-menu nav a[href="/faq.html"],.main-nav a[href="/faq.html"],.drawer-nav a[href="/faq.html"]{display:none!important}
 
-.desktop-nav a[href="/faq.html"],
-.mobile-menu nav a[href="/faq.html"],
-.main-nav a[href="/faq.html"],
-.drawer-nav a[href="/faq.html"]{
-  display:none!important;
-}
-
-.site-footer .footer-grid > div:last-child > p:last-child,
-.site-footer .footer-contact-list > span:last-child{
-  font-size:0;
-}
-.site-footer .footer-grid > div:last-child > p:last-child::after,
-.site-footer .footer-contact-list > span:last-child::after{
-  content:"Mississauga & the GTA";
-  font-size:.95rem;
-}
+/* One footer treatment across the entire site. */
+.site-footer,.site-footer.phase2-footer{margin-top:0!important;padding:4rem max(5vw,calc((100vw - 1240px)/2 + 22px)) 2rem!important;background:#40201d!important;border-top:0!important;color:rgba(255,255,255,.78)!important}
+.site-footer .footer-grid{max-width:1240px!important;margin:0 auto!important;grid-template-columns:1.5fr .7fr 1fr!important;gap:4rem!important}
+.site-footer .footer-brand,.site-footer .footer-name,.site-footer .footer-title,.site-footer .footer-heading{color:#fff!important}
+.site-footer .footer-brand,.site-footer .footer-name{font-family:Georgia,"Times New Roman",serif!important;font-size:1.7rem!important;font-weight:400!important;letter-spacing:0!important;text-transform:none!important}
+.site-footer .footer-tagline,.site-footer .footer-grid p,.site-footer .footer-links a,.site-footer .footer-contact-list a,.site-footer .footer-contact-list span,.site-footer .footer-grid a{color:rgba(255,255,255,.78)!important}
+.site-footer .footer-links a:hover,.site-footer .footer-contact-list a:hover,.site-footer .footer-grid a:hover{color:#fff!important}
+.site-footer .footer-social-icons{display:none!important}
+.site-footer .footer-bottom{margin-top:3rem!important;padding-top:1.5rem!important;border-top:1px solid rgba(255,255,255,.12)!important;color:rgba(255,255,255,.7)!important;font-size:.75rem!important}
+.site-footer .footer-grid>div:last-child>p:last-child,.site-footer .footer-contact-list>span:last-child{font-size:0}
+.site-footer .footer-grid>div:last-child>p:last-child::after,.site-footer .footer-contact-list>span:last-child::after{content:"Mississauga & the GTA";font-size:.95rem;color:rgba(255,255,255,.78)}
 
 @media(max-width:680px){
-  body:has(.main-nav)::after{display:none}
-
-  /* Mobile announcement bar: icons only, centered, no overlap. */
-  .announcement{
-    min-height:34px;
-    justify-content:center!important;
-    padding:0 12px!important;
-  }
-  .announcement > p{display:none!important}
-  .announcement-social{
-    position:static!important;
-    display:flex!important;
-    align-items:center;
-    justify-content:center;
-    gap:1rem!important;
-    width:auto;
-  }
-  .announcement-social a{
-    width:20px!important;
-    height:20px!important;
-    padding:0!important;
-    font-size:0!important;
-    line-height:0!important;
-  }
-  .announcement-social a::before,
-  .announcement-social a::after{
-    content:none!important;
-    display:none!important;
-  }
-  .announcement-social svg{
-    display:block!important;
-    width:16px!important;
-    height:16px!important;
-  }
+  .announcement{min-height:34px;justify-content:center!important;padding:0 10px!important}.announcement>p{display:none!important}.announcement-social{position:static!important;display:flex!important;align-items:center;justify-content:center;gap:0!important;width:auto}.announcement-social a{width:auto!important;height:auto!important;padding:0!important;font-size:.58rem!important;line-height:1!important;letter-spacing:.07em!important}.announcement-social svg{display:none!important}.announcement-social a:nth-of-type(1)::after{content:"INSTAGRAM"!important;display:block!important}.announcement-social a:nth-of-type(3)::before,.announcement-social a:nth-of-type(2)::before{content:"·"!important;display:block!important;margin:0 .45rem!important;color:#8f7168}.announcement-social a:nth-of-type(3)::after{content:"PINTEREST"!important;display:block!important}.announcement-social a:nth-of-type(2)::after{content:"TIKTOK"!important;display:block!important}
+  body:has(.main-nav)::before{content:"INSTAGRAM  ·  PINTEREST  ·  TIKTOK"!important;justify-content:center!important;padding:0 10px!important;font-size:.58rem!important;font-weight:700!important;letter-spacing:.07em!important}body:has(.main-nav)::after{display:none!important}
+  .site-footer .footer-grid{grid-template-columns:1fr!important;gap:2rem!important}.site-footer,.site-footer.phase2-footer{padding:3.5rem 20px 6rem!important}
 }

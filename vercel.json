@@ -4,6 +4,21 @@
       "source": "/home",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/pdfs/nikkah-packages.pdf",
+      "destination": "/nikkah-packages.html",
+      "permanent": true
+    },
+    {
+      "source": "/pdfs/mehndi-packages.pdf",
+      "destination": "/mehndi-packages.html",
+      "permanent": true
+    },
+    {
+      "source": "/pdfs/party-packages.pdf",
+      "destination": "/party-packages.html",
+      "permanent": true
     }
   ]
 }

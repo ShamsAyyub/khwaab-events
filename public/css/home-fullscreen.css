@@ -4,13 +4,15 @@
 
 @media(min-width:981px){
   body:has(.hero) .announcement{position:relative;z-index:1100}
-  body:has(.hero) .site-header{position:absolute;top:34px;left:0;right:0;background:linear-gradient(to bottom,rgba(35,20,18,.72),rgba(35,20,18,.2));border-bottom:1px solid rgba(255,255,255,.16);backdrop-filter:blur(7px)}
+  body:has(.hero) .site-header{position:absolute;top:34px;left:0;right:0;z-index:1050;background:linear-gradient(to bottom,rgba(35,20,18,.78),rgba(35,20,18,.28));border-bottom:1px solid rgba(255,255,255,.16);backdrop-filter:blur(7px)}
   body:has(.hero) .header-inner{max-width:1320px;height:92px}
   body:has(.hero) .brand span,
+  body:has(.hero) .brand span::before,
   body:has(.hero) .desktop-nav>a,
-  body:has(.hero) .nav-dropdown button{color:#fff;text-shadow:0 1px 12px rgba(25,12,10,.35)}
+  body:has(.hero) .nav-dropdown button{color:#fff!important;text-shadow:0 1px 12px rgba(25,12,10,.55)}
+  body:has(.hero) .brand{position:relative;z-index:2}
   body:has(.hero) .brand img{filter:drop-shadow(0 3px 10px rgba(0,0,0,.25))}
-  body:has(.hero) .desktop-nav .nav-cta{background:var(--rose);color:#fff;text-shadow:none;padding:.9rem 1.15rem}
+  body:has(.hero) .desktop-nav .nav-cta{background:var(--rose);color:#fff!important;text-shadow:none;padding:.9rem 1.15rem}
   body:has(.hero) .dropdown-menu{background:rgba(255,253,249,.98)}
   body:has(.hero) .dropdown-menu a{color:var(--ink);text-shadow:none}
 
