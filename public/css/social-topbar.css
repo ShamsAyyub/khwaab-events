@@ -28,7 +28,7 @@
 .announcement-social a:nth-of-type(3)::after{content:"PINTEREST"}
 .announcement-social a:nth-of-type(2)::after{content:"TIKTOK"}
 
-/* Internal pages use pseudo-elements for the announcement bar. */
+/* Internal pages use pseudo-elements for the same announcement bar. */
 body:has(.main-nav)::after{
   content:"INSTAGRAM  ·  PINTEREST  ·  TIKTOK" !important;
   position:absolute;
@@ -49,21 +49,15 @@ body:has(.main-nav)::after{
 }
 
 body:has(.main-nav) .announcement-social::before,
-body:has(.main-nav) .announcement-social::after{
-  content:none!important;
-}
+body:has(.main-nav) .announcement-social::after{content:none!important}
 
 .desktop-nav a[href="/faq.html"],
 .mobile-menu nav a[href="/faq.html"],
 .main-nav a[href="/faq.html"],
-.drawer-nav a[href="/faq.html"]{
-  display:none!important;
-}
+.drawer-nav a[href="/faq.html"]{display:none!important}
 
 .site-footer .footer-grid > div:last-child > p:last-child,
-.site-footer .footer-contact-list > span:last-child{
-  font-size:0;
-}
+.site-footer .footer-contact-list > span:last-child{font-size:0}
 .site-footer .footer-grid > div:last-child > p:last-child::after,
 .site-footer .footer-contact-list > span:last-child::after{
   content:"Mississauga & the GTA";
@@ -71,13 +65,11 @@ body:has(.main-nav) .announcement-social::after{
 }
 
 @media(max-width:680px){
-  body:has(.main-nav)::after{display:none}
-
-  /* Mobile announcement bar: icons only, centered, no overlap. */
+  /* Use the same full social names on mobile everywhere. */
   .announcement{
     min-height:34px;
     justify-content:center!important;
-    padding:0 12px!important;
+    padding:0 10px!important;
   }
   .announcement > p{display:none!important}
   .announcement-social{
@@ -85,24 +77,30 @@ body:has(.main-nav) .announcement-social::after{
     display:flex!important;
     align-items:center;
     justify-content:center;
-    gap:1rem!important;
+    gap:0!important;
     width:auto;
   }
   .announcement-social a{
-    width:20px!important;
-    height:20px!important;
+    width:auto!important;
+    height:auto!important;
     padding:0!important;
-    font-size:0!important;
-    line-height:0!important;
+    font-size:.58rem!important;
+    line-height:1!important;
+    letter-spacing:.07em!important;
   }
-  .announcement-social a::before,
-  .announcement-social a::after{
-    content:none!important;
-    display:none!important;
+  .announcement-social svg{display:none!important}
+  .announcement-social a:nth-of-type(1)::after{content:"INSTAGRAM"!important;display:block!important}
+  .announcement-social a:nth-of-type(3)::before,.announcement-social a:nth-of-type(2)::before{content:"·"!important;display:block!important;margin:0 .45rem!important;color:#8f7168}
+  .announcement-social a:nth-of-type(3)::after{content:"PINTEREST"!important;display:block!important}
+  .announcement-social a:nth-of-type(2)::after{content:"TIKTOK"!important;display:block!important}
+
+  body:has(.main-nav)::before{
+    content:"INSTAGRAM  ·  PINTEREST  ·  TIKTOK"!important;
+    justify-content:center!important;
+    padding:0 10px!important;
+    font-size:.58rem!important;
+    font-weight:700!important;
+    letter-spacing:.07em!important;
   }
-  .announcement-social svg{
-    display:block!important;
-    width:16px!important;
-    height:16px!important;
-  }
+  body:has(.main-nav)::after{display:none!important}
 }
