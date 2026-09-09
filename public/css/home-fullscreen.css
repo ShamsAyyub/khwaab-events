@@ -6,6 +6,7 @@
   body:has(.hero) .header-inner{max-width:1320px;height:92px}
   body:has(.hero) .brand span,
   body:has(.hero) .brand span::before,
+  body:has(.hero) .brand span::after,
   body:has(.hero) .desktop-nav>a,
   body:has(.hero) .nav-dropdown button{color:#fff!important;text-shadow:0 1px 12px rgba(25,12,10,.55)}
   body:has(.hero) .brand{position:relative;z-index:2}
