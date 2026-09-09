@@ -2,9 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.khwaab.ca/</loc><priority>1.0</priority></url>
   <url><loc>https://www.khwaab.ca/index.html</loc><priority>1.0</priority></url>
-  <url><loc>https://www.khwaab.ca/about.html</loc><priority>0.8</priority></url>
-  <url><loc>https://www.khwaab.ca/gallery.html</loc><priority>0.8</priority></url>
   <url><loc>https://www.khwaab.ca/packages.html</loc><priority>0.9</priority></url>
+  <url><loc>https://www.khwaab.ca/event-types.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.khwaab.ca/nikkah-packages.html</loc><priority>0.9</priority></url>
+  <url><loc>https://www.khwaab.ca/mehndi-packages.html</loc><priority>0.9</priority></url>
+  <url><loc>https://www.khwaab.ca/party-packages.html</loc><priority>0.9</priority></url>
+  <url><loc>https://www.khwaab.ca/gallery.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.khwaab.ca/blog.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.khwaab.ca/blog/nikkah-decor-cost-gta.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.khwaab.ca/about.html</loc><priority>0.7</priority></url>
   <url><loc>https://www.khwaab.ca/faq.html</loc><priority>0.7</priority></url>
   <url><loc>https://www.khwaab.ca/contact.html</loc><priority>0.9</priority></url>
 </urlset>
