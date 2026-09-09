@@ -43,11 +43,14 @@
   content:none!important;
 }
 
-/* On the transparent home hero header, keep the editorial mark light. */
-.hero .brand span::before,
-.home-hero .brand span::before,
-body.home .brand span::before{
-  color:inherit;
+/* Homepage header sits over the hero image on desktop. Keep the wordmark ivory and above the image. */
+@media(min-width:981px){
+  body:has(.hero) .site-header{z-index:1200}
+  body:has(.hero) .site-header .brand span,
+  body:has(.hero) .site-header .brand span::before{
+    color:#fff8ec!important;
+    text-shadow:0 1px 12px rgba(25,12,10,.45)
+  }
 }
 
 @media(max-width:980px){
