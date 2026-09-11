@@ -1,0 +1,127 @@
+(() => {
+  const API_URL = 'https://admin.khwaab.ca/api/portfolio';
+  const dynamicSection = document.getElementById('portfolioDynamic');
+  const eventGrid = document.getElementById('portfolioEventGrid');
+  const fallback = document.getElementById('portfolioFallback');
+  const filterRoot = document.getElementById('galleryFilters');
+  const heroImage = document.querySelector('.portfolio-hero-image img');
+  const lightbox = document.getElementById('galleryLightbox');
+  const lightboxImage = lightbox.querySelector('.lightbox-stage img');
+  const lightboxTitle = lightbox.querySelector('.lightbox-caption h2');
+  const lightboxKicker = lightbox.querySelector('.lightbox-kicker');
+  const lightboxMeta = lightbox.querySelector('.lightbox-meta');
+  const status = lightbox.querySelector('.lightbox-status');
+  let allEvents = [];
+  let activeEvent = null;
+  let activeImages = [];
+  let imageIndex = 0;
+
+  const keyFor = (value) => value.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const optimized = (url, width = 1400) => url.includes('/upload/') ? url.replace('/upload/', `/upload/f_auto,q_auto,c_limit,w_${width}/`) : url;
+  const sortedImages = (event) => [...(event.portfolio_images || [])].sort((a, b) => a.sort_order - b.sort_order);
+  const coverFor = (event) => {
+    const images = sortedImages(event);
+    return images.find((image) => image.is_cover) || images[0];
+  };
+
+  function createFilters(events) {
+    const categories = [...new Set(events.map((event) => event.event_type))];
+    filterRoot.innerHTML = ['All', ...categories].map((label, index) => `<button class="gallery-filter${index === 0 ? ' active' : ''}" data-filter="${index === 0 ? 'all' : keyFor(label)}">${label}</button>`).join('');
+    filterRoot.querySelectorAll('.gallery-filter').forEach((button) => button.addEventListener('click', () => {
+      filterRoot.querySelectorAll('.gallery-filter').forEach((item) => item.classList.toggle('active', item === button));
+      renderEvents(button.dataset.filter);
+    }));
+  }
+
+  function renderEvents(filter = 'all') {
+    const visible = allEvents.filter((event) => filter === 'all' || keyFor(event.event_type) === filter);
+    eventGrid.innerHTML = '';
+    visible.forEach((event, index) => {
+      const cover = coverFor(event);
+      if (!cover) return;
+      const card = document.createElement('button');
+      card.className = `portfolio-event-card shape-${index % 6}`;
+      card.type = 'button';
+      card.innerHTML = `<img src="${optimized(cover.secure_url)}" alt="${cover.alt_text || event.title}" loading="lazy"><span class="portfolio-event-overlay"><span class="portfolio-event-type">${event.event_type}</span><strong>${event.title}</strong>${event.location ? `<span>${event.location}</span>` : ''}</span>`;
+      card.addEventListener('click', () => openEvent(event));
+      eventGrid.appendChild(card);
+
+      if ((index + 1) % 5 === 0 && index < visible.length - 1) {
+        const cta = document.createElement('a');
+        cta.className = 'portfolio-inline-cta';
+        cta.href = '/contact.html';
+        cta.innerHTML = '<span>Have a vision in mind?</span><strong>Let’s create something personal to you.</strong><em>Start your inquiry →</em>';
+        eventGrid.appendChild(cta);
+      }
+    });
+  }
+
+  function openEvent(event) {
+    activeEvent = event;
+    activeImages = sortedImages(event);
+    imageIndex = 0;
+    showImage();
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    lightbox.querySelector('.lightbox-close').focus();
+  }
+
+  function showImage() {
+    if (!activeImages.length) return;
+    imageIndex = (imageIndex + activeImages.length) % activeImages.length;
+    const image = activeImages[imageIndex];
+    lightboxImage.src = optimized(image.secure_url, 2200);
+    lightboxImage.alt = image.alt_text || activeEvent.title;
+    lightboxKicker.textContent = activeEvent.event_type;
+    lightboxTitle.textContent = activeEvent.title;
+    lightboxMeta.textContent = [activeEvent.location, activeEvent.event_date ? new Date(`${activeEvent.event_date}T12:00:00`).toLocaleDateString('en-CA', { year: 'numeric', month: 'long' }) : ''].filter(Boolean).join(' · ');
+    status.textContent = `${imageIndex + 1} / ${activeImages.length}`;
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  function enableFallback() {
+    const filters = [...document.querySelectorAll('.gallery-filter')];
+    const groups = [...document.querySelectorAll('.portfolio-section')];
+    const filterGallery = (category) => {
+      filters.forEach((button) => button.classList.toggle('active', button.dataset.filter === category));
+      groups.forEach((group) => { group.hidden = category !== 'all' && group.dataset.category !== category; });
+    };
+    filters.forEach((button) => button.addEventListener('click', () => filterGallery(button.dataset.filter)));
+    document.querySelectorAll('.gallery-item').forEach((item) => item.addEventListener('click', () => {
+      const images = [...document.querySelectorAll('.gallery-item')].filter((node) => !node.closest('[hidden]')).map((node, index) => ({ id: String(index), secure_url: node.querySelector('img').src, alt_text: node.querySelector('img').alt, sort_order: index }));
+      openEvent({ title: 'Khwaab Events', event_type: 'Our work', location: 'Greater Toronto Area', portfolio_images: images });
+      imageIndex = [...document.querySelectorAll('.gallery-item')].filter((node) => !node.closest('[hidden]')).indexOf(item);
+      showImage();
+    }));
+  }
+
+  lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+  lightbox.querySelector('.lightbox-next').addEventListener('click', () => { imageIndex += 1; showImage(); });
+  lightbox.querySelector('.lightbox-prev').addEventListener('click', () => { imageIndex -= 1; showImage(); });
+  lightbox.addEventListener('click', (event) => { if (event.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeLightbox();
+    if (lightbox.classList.contains('open') && event.key === 'ArrowRight') { imageIndex += 1; showImage(); }
+    if (lightbox.classList.contains('open') && event.key === 'ArrowLeft') { imageIndex -= 1; showImage(); }
+  });
+
+  fetch(API_URL)
+    .then((response) => response.ok ? response.json() : Promise.reject(new Error('Portfolio is not available yet.')))
+    .then(({ events }) => {
+      allEvents = (events || []).filter((event) => coverFor(event));
+      if (!allEvents.length) throw new Error('No published events yet.');
+      createFilters(allEvents);
+      renderEvents();
+      const firstCover = coverFor(allEvents[0]);
+      if (firstCover && heroImage) { heroImage.src = optimized(firstCover.secure_url, 1800); heroImage.alt = firstCover.alt_text || allEvents[0].title; }
+      fallback.hidden = true;
+      dynamicSection.hidden = false;
+    })
+    .catch(enableFallback);
+})();
